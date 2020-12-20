@@ -26,3 +26,14 @@ let rec goldbach_list left right =
             (left, (goldbach left))::tmp_list
         else
             tmp_list
+
+let goldbach_limit left right barier = 
+    let rec goldbach_limit_rec barier = function
+        | [] -> []
+        | (_, (i,_)) as h::t -> 
+            let tmp_list = goldbach_limit_rec barier t
+            in if i >= barier then
+                h::tmp_list
+            else
+                tmp_list
+    in goldbach_limit_rec barier (goldbach_list left right)

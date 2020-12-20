@@ -7,8 +7,6 @@ let is_prime n =
 let goldbach n = 
     if n mod 2 == 1 then
         (-1, -1)
-    else if n == 4 then
-        (2, 2)
     else 
         let rec goldbach_rec n i =
             if i > (n / 2) then
@@ -17,4 +15,4 @@ let goldbach n =
                 (i, n - i)
             else
                 goldbach_rec n (i + 1)
-        in goldbach_rec n 3
+        in goldbach_rec n 2
